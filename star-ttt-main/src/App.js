@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import "./index.css";
 import socketIo from "socket.io-client";
-import TicTacToe from './TicTacToe';
+import TicTacToe from "./TicTacToe";
+
 
 const createRoomUrl = "http://localhost:5000/create-room";
 const socket = socketIo("http://localhost:5000");
@@ -29,43 +30,44 @@ const App = () => {
 
     const joinRoom = (event) => {
         event.preventDefault();
-        socket.emit('join-room', {username, roomId});
-    }
+        socket.emit("join-room", { username, roomId });
+    };
 
     useEffect(() => {
-        socket.on('room-data', (_room) => {
+        socket.on("room-data", (_room) => {
             console.log(_room);
             setRoom(_room);
-        })
+        });
     }, []);
 
     return (
-        <div>
+        <div className="container">
             {room === null ? (
                 <div className="form-container">
-                <form className="room-creation">
-                    <b><div className="title">ROOM CREATION</div></b>
-                    <div className="underline"/><br></br><br></br>
-                    Username <input
-                        type="text"
-                        
-                        value={username}
-                        onChange={(event) => setUsername(event.target.value)}
-                    /><br></br><br></br>
-                    <button onClick={createRoom}>Create Room </button>
-                    <br></br><br></br><div className="dividor"/><br></br><br></br>
-                
-                    Room ID <input
-                        type="text"
-                        
-                        value={roomId}
-                        onChange={(event) => setRoomId(event.target.value)}
-                    /><br></br><br></br>
-                    <button onClick={joinRoom}>Join Room</button>
-                </form>
+                    <form className="room-creation">
+                        <div className="gap"><div className="title">TicTacToe</div>
+                        <div className="under"></div></div>
+                        <input
+                            type="text"
+                            placeholder="Username"
+                            value={username}
+                            onChange={(event) =>
+                                setUsername(event.target.value)
+                            }
+                        />
+                        <button onClick={createRoom}>Create Room</button>
+                        <hr color="lightgreen" />
+                        <input
+                            type="text"
+                            placeholder="Room ID"
+                            value={roomId}
+                            onChange={(event) => setRoomId(event.target.value)}
+                        />
+                        <button onClick={joinRoom}>Join Room</button>
+                    </form>
                 </div>
             ) : (
-                <TicTacToe room={room} socket={socket}/>
+                <TicTacToe room={room} socket={socket} username={username}/>
             )}
         </div>
     );

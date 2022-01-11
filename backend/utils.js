@@ -8,6 +8,7 @@ const defaultBoard = [
 	["", "", ""],
 ];
 
+
 const getRoomIdCookie = (cookieString) => {
 	if(!cookieString) 
 		return "";
