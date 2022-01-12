@@ -5,7 +5,7 @@ import TicTacToe from "./TicTacToe";
 import "./styles/room.css";
 
 const createRoomUrl = "https://tictactoemain.vercel.app/create-room";
-const socket = socketIo("https://tictactoemain.vercel.app/");
+const socket = socketIo("https://tictactoemain.vercel.app");
 
 const App = () => {
     const [roomId, setRoomId] = useState("");
