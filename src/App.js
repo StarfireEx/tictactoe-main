@@ -4,8 +4,8 @@ import socketIo from "socket.io-client";
 import TicTacToe from "./TicTacToe";
 import "./styles/room.css";
 
-const createRoomUrl = "https://mytiktaktoe.herokuapp.com/create-room";
-const socket = socketIo("https://mytiktaktoe.herokuapp.com");
+const createRoomUrl = "https://star-ttt-backend.herokuapp.com/create-room";
+const socket = socketIo("https://star-ttt-backend.herokuapp.com");
 
 const App = () => {
     const [roomId, setRoomId] = useState("");
