@@ -4,8 +4,8 @@ import socketIo from "socket.io-client";
 import TicTacToe from "./TicTacToe";
 import "./styles/room.css";
 
-const createRoomUrl = "http://localhost:5000/create-room";
-const socket = socketIo("http://localhost:5000");
+const createRoomUrl = "https://tictactoemain.vercel.app/create-room";
+const socket = socketIo("https://tictactoemain.vercel.app");
 
 const App = () => {
     const [roomId, setRoomId] = useState("");
