@@ -39,7 +39,7 @@ const TicTacToe = ({ socket, room, username }) => {
 
     return (
         <div className="tic-tac-toe">
-            <h1>TicTacToe</h1>
+            <h1>MyTicTacToe</h1>
             <h2>
                 Room ID <span>{room.roomId}</span>
             </h2>
