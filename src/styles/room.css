@@ -27,6 +27,7 @@ body {
 	text-shadow: 0px 0px 10px black;
 }
 .room-creation input {
+	border:none;
 	background: #1a1b1c;
 	height: 35px;
 	width: 80%;
